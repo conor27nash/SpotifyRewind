@@ -41,7 +41,7 @@ window.addEventListener("message", function (e) {
 let exchange = async () => {
     console.log(code)
     let exchangeUrl = `https://spotifyauthfunction.azurewebsites.net/api/exchange?code=${code}`;
-    let res = await fetch(exchangeUrl);
+    let res = await fetch(exchangeUrl, {mode: "no-cors"});
     let object = await res.json();
     access_token.update(object.access_token);
     console.log(get(access_token));
@@ -54,7 +54,7 @@ let exchange = async () => {
 let refresh = () => {
     setTimeout(async function () {
         let refreshUrl = `https://spotifyauthfunction.azurewebsites.net/api/refresh?refresh_token=${get(refresh_token)}`;
-        let res = await fetch(refreshUrl);
+        let res = await fetch(refreshUrl, {mode: "no-cors"});
         let object = await res.json();
         access_token.update(object.access_token);
         refresh();
