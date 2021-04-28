@@ -1,6 +1,6 @@
 <script lang="ts">
     import { loggedIn } from "../scripts/store";
-    import { login } from "../scripts/login";
+    import { login, url } from "../scripts/login";
     
 
   
@@ -9,7 +9,7 @@
 <h1>Home</h1>
 <br />
 <p>
-    user <br /><br /> user picture? <br /><br />recent listenings<br /><br />
+    {url} <br /><br /> user picture? <br /><br />recent listenings<br /><br />
 </p>
 
 <!-- {#if $loggedIn}

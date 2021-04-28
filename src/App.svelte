@@ -6,7 +6,7 @@
 	import { loggedIn } from "../scripts/store";
 	import { login } from "../scripts/login";
 
-	export let url = "";
+	
 </script>
 
 <Router {url}>
