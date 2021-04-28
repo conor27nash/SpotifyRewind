@@ -4,12 +4,13 @@ import {get} from 'svelte/store'
 
 var scopes = "user-read-private user-read-email user-top-read";
 let redirect_uri = "https://spotifyrewind.z33.web.core.windows.net/popup.hmtl";
-export let url =
+let url =
     "https://accounts.spotify.com/authorize?response_type=code&client_id=4c4f2ecd3bf648d49adc7846d0091831" +
     "&scope=" +
     encodeURIComponent(scopes) +
     "&redirect_uri=" +
     encodeURIComponent(redirect_uri);
+console.log(url);
 let json;
 let code;
 export function login() {
