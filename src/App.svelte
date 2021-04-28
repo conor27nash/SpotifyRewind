@@ -4,7 +4,7 @@
 	import Tracks from "../routes/Tracks.svelte";
 	import Artists from "../routes/Artists.svelte";
 	import { loggedIn } from "../scripts/store";
-	import { login } from "../scripts/login";
+	import Login  from "../routes/Login.svelte";
 
 	export let url = "";
 </script>
@@ -78,13 +78,7 @@
 				<Route path="artists" component={Artists} />
 				<Route path="/"><Home /></Route>
 				{#if !$loggedIn}
-					<h3>Hello There!<br /></h3>
-					<h4>Please log in to see your rewind</h4>
-					<button
-						class="btn btn-lg btn-dark"
-						on:click={login}
-						style="background:#33444e">login</button
-					>
+					<Login></Login>
 				{/if}
 			</div>
 			<div class="col sides" />
