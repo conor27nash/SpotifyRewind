@@ -1,0 +1,38 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Popup</title>
+    <style>
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<div class="text-center justify-content-center">
+    <h1>Thank you for Logging in!</h1>
+    <h4>You may now close this window</h4>
+    <button class="btn btn-lg btn-primary" id="close">Close</button>
+</div>
+
+<link rel='stylesheet' href='bootstrap/dist/css/bootstrap.min.css'>
+<script>
+
+    const params = new URLSearchParams(location.search)
+    var code = params.get("code")
+
+   
+    document.querySelector('#close').addEventListener('click', event => {
+        var data = {code}
+        window.opener.postMessage(data,"http://localhost:5000");
+        window.close()
+    })
+</script>
+
+
+</html>
+<style>
+    body{
+        background-color: #1DB954;
+    }
+</style>
