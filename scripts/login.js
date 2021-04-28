@@ -39,7 +39,7 @@ window.addEventListener("message", function (e) {
 });
 
 let exchange = async () => {
-
+    console.log(code)
     let exchangeUrl = `https://spotifyauthfunction.azurewebsites.net/api/exchange?code=${code}`;
     let res = await fetch(exchangeUrl);
     let object = await res.json();
