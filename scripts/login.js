@@ -3,7 +3,7 @@ import { getAllInfo } from "../scripts/spotifyInfo";
 import {get} from 'svelte/store'
 
 var scopes = "user-read-private user-read-email user-top-read";
-let redirect_uri = "https://spotifyrewind.z33.web.core.windows.net/popup.hmtl";
+let redirect_uri = "https://spotifyrewind.z33.web.core.windows.net/popup.html";
 let url =
     "https://accounts.spotify.com/authorize?response_type=code&client_id=4c4f2ecd3bf648d49adc7846d0091831" +
     "&scope=" +
