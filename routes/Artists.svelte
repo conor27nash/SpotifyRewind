@@ -166,7 +166,7 @@
         }
 
     /* Small devices (landscape phones, 576px and up) */
-    @media (max-width: 380px) {
+    @media (max-width: 420px) {
         
         img {
             width: 180px;

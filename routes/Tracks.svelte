@@ -159,7 +159,7 @@
         opacity: 1;
         transform: scale(1, 1);
     }
-    @media (max-width: 380px) {
+    @media (max-width: 420px) {
         img {
             width: 180px;
             height: 180px;
