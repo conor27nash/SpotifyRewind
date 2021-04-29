@@ -7,7 +7,7 @@
     } from "../scripts/store";
 
     let orgData = $artistShort;
-    console.log(orgData);
+    // console.log(orgData);
     function setArtistShort() {
         orgData = $artistShort;
     }

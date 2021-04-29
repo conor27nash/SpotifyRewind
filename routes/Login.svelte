@@ -13,7 +13,7 @@
         encodeURIComponent(scopes) +
         "&redirect_uri=" +
         encodeURIComponent(redirect_uri);
-    console.log(url);
+    // console.log(url);
     let json;
     let code;
     function login() {
@@ -42,12 +42,12 @@
     });
 
     let exchange = async () => {
-        console.log(code);
+        // console.log(code);
         let exchangeUrl = `https://spotifyauthfunction.azurewebsites.net/api/exchange?code=${code}`;
         let res = await fetch(exchangeUrl);
         let object = await res.json();
         access_token.update(object.access_token);
-        console.log(get(access_token));
+        // console.log(get(access_token));
         refresh_token.update(object.refresh_token);
         refresh();
         json = JSON.stringify(object);
