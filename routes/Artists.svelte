@@ -1,30 +1,75 @@
 <script lang="ts">
-import { loggedIn,artistLong,artistMedium,artistShort } from "../scripts/store";
+    import {
+        loggedIn,
+        artistLong,
+        artistMedium,
+        artistShort,
+    } from "../scripts/store";
 
-let orgData = $artistShort;
-console.log(orgData)
-    function setArtistShort(){
-        orgData = $artistShort
+    let orgData = $artistShort;
+    console.log(orgData);
+    function setArtistShort() {
+        orgData = $artistShort;
     }
-    function setArtistMedium(){
-        orgData = $artistMedium
+    function setArtistMedium() {
+        orgData = $artistMedium;
     }
-    function setArtistLong(){
-        orgData = $artistLong
+    function setArtistLong() {
+        orgData = $artistLong;
     }
-
 </script>
+
 <main>
     <br />
     <h1>Artists</h1>
-    <br />
-    
 
+    <!-- move  {#if $loggedIn} back here -->
+    <div class="container-fluid">
+        <div class="row">
+            <button on:click={setArtistShort} class="btn col-sm"
+                >Last Month</button
+            >
+            <button on:click={setArtistMedium} class="btn col-sm"
+                >Last 6 Months</button
+            >
+            <button on:click={setArtistLong} class="btn col-sm"
+                >Of all Time</button
+            >
+        </div>
+    </div>
+    <br />
+
+    <div class="card">
+        <div class="row">
+            <div class="col-1">
+                <h2>1.</h2>
+            </div>
+            <div class="col-10">
+                <img
+                    src="https://th.bing.com/th/id/R198312b0a2bcca029b33b68668506684?rik=3DArreb51F83ew&pid=ImgRaw"
+                    alt="a cat"
+                    width="320"
+                    height="320"
+                    class="img-fluid"
+                />
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card-body">
+                <h5>Artist Name: <br /></h5>
+                <p>John Cena</p>
+                <h4>Genres</h4>
+                <p>eggs</p>
+                <p>eggs</p>
+                <p>eggs</p>
+                <p>eggs</p>
+                <p>eggs</p>
+            </div>
+        </div>
+    </div>
+
+    <br />
     {#if $loggedIn}
-    <button on:click={setArtistShort} class="btn">Last Month</button>
-    <button on:click={setArtistMedium} class="btn">Last 6 Months</button>
-    <button on:click={setArtistLong} class="btn">Of all Time</button>
-    <br>
         {#each orgData as artist, i}
             <div class="card">
                 <div class="row">
@@ -35,8 +80,6 @@ console.log(orgData)
                         <img
                             src={artist.Images[1].url}
                             alt="a cat"
-                            width="320"
-                            height="320"
                             class="img-fluid"
                         />
                     </div>
@@ -45,7 +88,7 @@ console.log(orgData)
                             <h3>{artist.Name}</h3>
                             <h4>Genres</h4>
                             {#each artist.Genres as genre}
-                                <h5> {genre}</h5>
+                                <h5>{genre}</h5>
                             {/each}
                         </div>
                     </div>
@@ -55,6 +98,7 @@ console.log(orgData)
         {/each}
     {/if}
 </main>
+
 <style>
     h1 {
         background-color: #77b1ad;
@@ -76,13 +120,12 @@ console.log(orgData)
     }
 
     .btn {
-        color:#322831;
+        color: #322831;
         transition: all 0.5s;
         position: relative;
         padding-left: 10%;
         padding-right: 10%;
         margin: 0px;
-        
     }
     .btn::before {
         content: "";
@@ -95,7 +138,7 @@ console.log(orgData)
         background-color: rgba(51, 68, 78, 0.05);
         transition: all 0.3s;
         border: 3px solid #322831;
-		border-radius: 10px;
+        border-radius: 10px;
     }
     .btn:hover::before {
         opacity: 0;
@@ -118,5 +161,34 @@ console.log(orgData)
     .btn:hover::after {
         opacity: 1;
         transform: scale(1, 1);
+    }
+
+    /* Small devices (landscape phones, 576px and up) */
+    @media (max-width: 380px) {
+        img {
+            width: 180px;
+            height: 180px;
+        }
+        p {
+            margin: 0px;
+        }
+        .hideSmall{
+            display: none;
+        }
+    }
+
+    /* // Medium devices (tablets, 768px and up) */
+    @media (max-width: 768px) {
+    }
+
+    /* // Large devices (desktops, 992px and up) */
+    @media (max-width: 992px) {
+    }
+
+    /* // Extra large devices (large desktops, 1200px and up) */
+    @media (min-width: 992px) {
+        .hideBig{
+            display: none;
+        }
     }
 </style>
