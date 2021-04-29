@@ -23,7 +23,7 @@
     <br />
     <h1>Artists</h1>
 
-    <!-- move  {#if $loggedIn} back here -->
+    {#if $loggedIn}
     <div class="container-fluid">
         <div class="row">
             <button on:click={setArtistShort} class="btn col-sm"
@@ -38,15 +38,15 @@
         </div>
     </div>
     <br />
-
-    <div class="card">
+    {#each orgData as artist, i}
+    <div class="card hideBig">
         <div class="row">
             <div class="col-1">
-                <h2>1.</h2>
+                <h2>{i + 1}</h2>
             </div>
             <div class="col-10">
                 <img
-                    src="https://th.bing.com/th/id/R198312b0a2bcca029b33b68668506684?rik=3DArreb51F83ew&pid=ImgRaw"
+                    src={artist.Images[1].url}
                     alt="a cat"
                     width="320"
                     height="320"
@@ -57,45 +57,43 @@
         <div class="col-sm">
             <div class="card-body">
                 <h5>Artist Name: <br /></h5>
-                <p>John Cena</p>
+                <p>{artist.Name}</p>
                 <h4>Genres</h4>
-                <p>eggs</p>
-                <p>eggs</p>
-                <p>eggs</p>
-                <p>eggs</p>
-                <p>eggs</p>
+                {#each artist.Genres as genre}
+                <p>{genre}</p>
+            {/each}
+                
             </div>
         </div>
     </div>
-
-    <br />
-    {#if $loggedIn}
-        {#each orgData as artist, i}
-            <div class="card">
-                <div class="row">
-                    <div class="col">
-                        <h2>{i + 1}</h2>
-                    </div>
-                    <div class="col-5">
-                        <img
-                            src={artist.Images[1].url}
-                            alt="a cat"
-                            class="img-fluid"
-                        />
-                    </div>
-                    <div class="col-5">
-                        <div class="card-body">
-                            <h3>{artist.Name}</h3>
-                            <h4>Genres</h4>
-                            {#each artist.Genres as genre}
-                                <h5>{genre}</h5>
-                            {/each}
-                        </div>
-                    </div>
+    <div class="card hideSmall">
+        <div class="row">
+            <div class="col">
+                <h2>{i + 1}</h2>
+            </div>
+            <div class="col-sm">
+                <img
+                    src={artist.Images[1].url}
+                    alt="a cat"
+                    width="320"
+                    height="320"
+                    class="img-fluid"
+                />
+            </div>
+            <div class="col-sm">
+                <div class="card-body">
+                    <h5>Artist Name: <br /></h5>
+                    <p>{artist.Name}</p>
+                    <h4>Genres</h4>
+                    {#each artist.Genres as genre}
+                    <p>{genre}</p>
+                {/each} 
                 </div>
             </div>
-            <br />
-        {/each}
+        </div>
+    </div>
+    <br />
+    {/each}
     {/if}
 </main>
 
@@ -162,16 +160,19 @@
         opacity: 1;
         transform: scale(1, 1);
     }
+    p {
+            margin: 0px;
+
+        }
 
     /* Small devices (landscape phones, 576px and up) */
     @media (max-width: 380px) {
+        
         img {
             width: 180px;
             height: 180px;
         }
-        p {
-            margin: 0px;
-        }
+       
         .hideSmall{
             display: none;
         }
