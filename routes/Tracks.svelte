@@ -1,15 +1,20 @@
 <script lang="ts">
-    import { loggedIn, tracksShort,tracksMedium,tracksLong } from "../scripts/store";
+    import {
+        loggedIn,
+        tracksShort,
+        tracksMedium,
+        tracksLong,
+    } from "../scripts/store";
 
     let orgData = $tracksShort;
-    function setTracksShort(){
-        orgData = $tracksShort
+    function setTracksShort() {
+        orgData = $tracksShort;
     }
-    function setTracksMedium(){
-        orgData = $tracksMedium
+    function setTracksMedium() {
+        orgData = $tracksMedium;
     }
-    function setTracksLong(){
-        orgData = $tracksLong
+    function setTracksLong() {
+        orgData = $tracksLong;
     }
 </script>
 
@@ -17,57 +22,84 @@
     <br />
     <h1>Tracks</h1>
     <br />
-    
+
     {#if $loggedIn}
-    <button on:click={setTracksShort} class="btn">Last Month</button>
-    <button on:click={setTracksMedium} class="btn">Last 6 Months</button>
-    <button on:click={setTracksLong} class="btn">Of all Time</button>
-    <br>
+        <div class="container-fluid">
+            <div class="row">
+                <button on:click={setTracksShort} class="btn col-sm"
+                    >Last Month</button
+                >
+                <button on:click={setTracksMedium} class="btn col-sm"
+                    >Last 6 Months</button
+                >
+                <button on:click={setTracksLong} class="btn col-sm"
+                    >Of all Time</button
+                >
+            </div>
+        </div>
+        <br />
+
         {#each orgData as track, i}
-            <div class="card">
-                <div class="row">
-                    <div class="col">
-                        <h2>{i + 1}</h2>
-                    </div>
-                    <div class="col-5">
-                        <img
-                            src={track.Album.images[1].url}
-                            alt="a cat"
-                            width="320"
-                            height="320"
-                            class="img-fluid"
-                        />
-                    </div>
-                    <div class="col-5">
-                        <div class="card-body">
-                            <h3>{track.Name}</h3>
-                            {#each track.Artist as artist}
-                                <h4>by {artist.artist_name}</h4>
-                            {/each}
-                        </div>
+        <div class="card hideBig">
+            <div class="row">
+                <div class="col-1">
+                    <h2>{i + 1}</h2>
+                </div>
+                <div class="col-10">
+                    <img
+                        src={track.Album.images[1].url}
+                        alt="a cat"
+                        width="320"
+                        height="320"
+                        class="img-fluid"
+                    />
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card-body">
+                    <h5>Track Name: <br /></h5>
+                    <p>{track.Name}</p>
+                    <h4>Artists:</h4>
+                    {#each track.Artist as artist}
+                    <h4>by {artist.artist_name}</h4>
+                {/each}
+                    
+                </div>
+            </div>
+        </div>
+        <div class="card hideSmall">
+            <div class="row">
+                <div class="col">
+                    <h2>{i + 1}</h2>
+                </div>
+                <div class="col-sm">
+                    <img
+                        src={track.Album.images[1].url}
+                        alt="a cat"
+                        width="320"
+                        height="320"
+                        class="img-fluid"
+                    />
+                </div>
+                <div class="col-sm">
+                    <div class="card-body">
+                        <h5>Track Name: <br /></h5>
+                        <p>{track.Name}</p>
+                        <h4>Artists:</h4>
+                        {#each track.Artist as artist}
+                        <h4>by {artist.artist_name}</h4>
+                    {/each} 
                     </div>
                 </div>
             </div>
-            <br />
+        </div>
+        <br />
+
+
+
         {/each}
     {/if}
-    <!-- {#if $loggedIn}
-    {#each orgData as track, i}
-        <p>{i + 1}</p>
-        <h1>{track.Name}</h1>
-        {#each track.Artist as artist}
-            <h3>by {artist.artist_name}</h3>
-        {/each}
-        <img
-            src={track.Album.images[1].url}
-            width="320"
-            height="320"
-            alt=""
-            class="img-fluid"
-        />
-        <br />
-    {/each}
-{/if} -->
+    
 </main>
 
 <style>
@@ -91,13 +123,12 @@
     }
 
     .btn {
-        color:#322831;
+        color: #322831;
         transition: all 0.5s;
         position: relative;
         padding-left: 10%;
         padding-right: 10%;
         margin: 0px;
-        
     }
     .btn::before {
         content: "";
@@ -110,7 +141,7 @@
         background-color: rgba(51, 68, 78, 0.05);
         transition: all 0.3s;
         border: 3px solid #322831;
-		border-radius: 10px;
+        border-radius: 10px;
     }
     .btn:hover::before {
         opacity: 0;
@@ -133,5 +164,31 @@
     .btn:hover::after {
         opacity: 1;
         transform: scale(1, 1);
+    }
+    @media (max-width: 380px) {
+        
+        img {
+            width: 180px;
+            height: 180px;
+        }
+       
+        .hideSmall{
+            display: none;
+        }
+    }
+
+    /* // Medium devices (tablets, 768px and up) */
+    @media (max-width: 768px) {
+    }
+
+    /* // Large devices (desktops, 992px and up) */
+    @media (max-width: 992px) {
+    }
+
+    /* // Extra large devices (large desktops, 1200px and up) */
+    @media (min-width: 992px) {
+        .hideBig{
+            display: none;
+        }
     }
 </style>
