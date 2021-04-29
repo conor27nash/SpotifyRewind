@@ -172,10 +172,16 @@
 
     /* // Medium devices (tablets, 768px and up) */
     @media (max-width: 768px) {
+        .hideBig {
+            display: none;
+        }
     }
 
     /* // Large devices (desktops, 992px and up) */
     @media (max-width: 992px) {
+        .hideBig {
+            display: none;
+        }
     }
 
     /* // Extra large devices (large desktops, 1200px and up) */
