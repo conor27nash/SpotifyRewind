@@ -40,11 +40,11 @@
     <br />
     {#each orgData as artist, i}
     <div class="card hideBig">
-        <div class="row">
-            <div class="col-1">
+        
+            <div class="col-sm">
                 <h2>{i + 1}</h2>
             </div>
-            <div class="col-10">
+            <div class="col-sm">
                 <img
                     src={artist.Images[1].url}
                     alt="a cat"
@@ -53,7 +53,7 @@
                     class="img-fluid"
                 />
             </div>
-        </div>
+        
         <div class="col-sm">
             <div class="card-body">
                 <h5>Artist Name: <br /></h5>
