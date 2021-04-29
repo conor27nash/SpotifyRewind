@@ -41,10 +41,10 @@
 
         {#each orgData as track, i}
         <div class="card hideBig">
+            <div class="col-1">
+                <h2>{i + 1}</h2>
+            </div>
             <div class="row">
-                <div class="col-1">
-                    <h2>{i + 1}</h2>
-                </div>
                 <div class="col-10">
                     <img
                         src={track.Album.images[1].url}
@@ -62,7 +62,7 @@
                     <h4>Artists:</h4>
                     {#each track.Artist as artist}
                     <p>{artist.artist_name}</p>
-                {/each}
+                    {/each}
                     
                 </div>
             </div>
