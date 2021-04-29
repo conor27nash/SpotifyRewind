@@ -61,7 +61,7 @@
                     <p>{track.Name}</p>
                     <h4>Artists:</h4>
                     {#each track.Artist as artist}
-                    <h4>by {artist.artist_name}</h4>
+                    <p>by {artist.artist_name}</p>
                 {/each}
                     
                 </div>
@@ -87,7 +87,7 @@
                         <p>{track.Name}</p>
                         <h4>Artists:</h4>
                         {#each track.Artist as artist}
-                        <h4>by {artist.artist_name}</h4>
+                        <p>by {artist.artist_name}</p>
                     {/each} 
                     </div>
                 </div>
