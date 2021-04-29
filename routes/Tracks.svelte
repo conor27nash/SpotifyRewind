@@ -21,7 +21,6 @@
 <main>
     <br />
     <h1>Tracks</h1>
-    <br />
 
     {#if $loggedIn}
         <div class="container-fluid">
