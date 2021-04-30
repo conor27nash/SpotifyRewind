@@ -65,32 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card hideSmall">
-                <div class="row">
-                    <div class="col">
-                        <h2>{i + 1}</h2>
-                    </div>
-                    <div class="col-sm">
-                        <img
-                            src={track.Album.images[1].url}
-                            alt="a cat"
-                            width="320"
-                            height="320"
-                            class="img-fluid"
-                        />
-                    </div>
-                    <div class="col-sm">
-                        <div class="card-body">
-                            <h5>Track Name: <br /></h5>
-                            <p>{track.Name}</p>
-                            <h4>Artists:</h4>
-                            {#each track.Artist as artist}
-                                <p>{artist.artist_name}</p>
-                            {/each}
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <br />
         {/each}
     {/if}
@@ -170,24 +145,5 @@
         }
     }
 
-    /* // Medium devices (tablets, 768px and up) */
-    @media (max-width: 768px) {
-        .hideSmall {
-            display: none;
-        }
-    }
-
-    /* // Large devices (desktops, 992px and up) */
-    @media (max-width: 992px) {
-        .hideSmall {
-            display: none;
-        }
-    }
-
-    /* // Extra large devices (large desktops, 1200px and up) */
-    @media (min-width: 992px) {
-        .hideBig {
-            display: none;
-        }
-    }
+ 
 </style>
