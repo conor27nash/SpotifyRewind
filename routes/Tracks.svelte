@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            
+           
             <br />
         {/each}
     {/if}
@@ -134,16 +134,5 @@
         opacity: 1;
         transform: scale(1, 1);
     }
-    @media (max-width: 420px) {
-        img {
-            width: 180px;
-            height: 180px;
-        }
-
-        .hideSmall {
-            display: none;
-        }
-    }
-
  
 </style>

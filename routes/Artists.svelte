@@ -64,7 +64,6 @@
                     </div>
                 </div>
             </div>
-           
             <br />
         {/each}
     {/if}
@@ -137,4 +136,5 @@
         margin: 0px;
     }
 
+  
 </style>
