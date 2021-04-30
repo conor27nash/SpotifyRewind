@@ -9,7 +9,7 @@
 <h1>Home</h1>
 <br />
 <p>
-     <br /><br /> user picture? <br /><br />recent listenings<br /><br />
+     <br /><br /> Current build 1.0 <br /><br />recent listenings<br /><br />
 </p>
 
 <!-- {#if $loggedIn}
