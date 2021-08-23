@@ -3,10 +3,12 @@
     import { getAllInfo } from "../scripts/spotifyInfo";
     import { get } from "svelte/store";
 
-    var scopes = "user-read-private user-read-email user-top-read";
+    var scopes = "user-read-private user-read-email user-top-read user-read-recently-played";
     let redirect_uri =
         "https://spotifyrewind.z33.web.core.windows.net/popup.html";
 
+
+        // NEED TO HIDE CLIENT ID BELOW
     let url =
         "https://accounts.spotify.com/authorize?response_type=code&client_id=4c4f2ecd3bf648d49adc7846d0091831" +
         "&scope=" +
@@ -42,12 +44,12 @@
     });
 
     let exchange = async () => {
-        // console.log(code);
+    
         let exchangeUrl = `https://spotifyauthfunction.azurewebsites.net/api/exchange?code=${code}`;
         let res = await fetch(exchangeUrl);
         let object = await res.json();
         access_token.update(object.access_token);
-        // console.log(get(access_token));
+   
         refresh_token.update(object.refresh_token);
         refresh();
         json = JSON.stringify(object);

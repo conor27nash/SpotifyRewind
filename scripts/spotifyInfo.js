@@ -1,4 +1,4 @@
-import { tracksShort, tracksLong, tracksMedium, artistLong, artistMedium, artistShort, access_token } from "./store";
+import { tracksShort, tracksLong, tracksMedium, artistLong, artistMedium, artistShort, access_token, recentTracks } from "./store";
 import {get} from 'svelte/store'
 
 export let getAllInfo = () => {
@@ -9,6 +9,9 @@ export let getAllInfo = () => {
     getInfo("artists", "medium_term", artistMedium)
     getInfo("artists", "long_term", artistLong)
 
+}
+export let getRecentSongs = () => {
+    getRecent(recentTracks)
 }
 
 let getInfo = async (type, timeRange, store) => {
@@ -21,3 +24,11 @@ let getInfo = async (type, timeRange, store) => {
 
 };
 
+
+let getRecent = async (store) => {
+    let token = get(access_token)
+    let recentURL = `https://spotifyauthfunction.azurewebsites.net/api/recent?Authorization=${token}`
+    let res = await fetch(recentURL);
+    let obj = await res.json();
+    store.update(obj);
+}

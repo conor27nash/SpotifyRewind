@@ -12,6 +12,8 @@ export const tracksLong = createInfoStore()
 export const artistShort = createInfoStore()
 export const artistMedium = createInfoStore()
 export const artistLong = createInfoStore()
+export const recentTracks = createRecentStore()
+
 function createTokenStore() {
     const { subscribe, set, update } = writable('Not updated');
 
@@ -26,6 +28,15 @@ function createInfoStore() {
     return {
         subscribe,
         update: (object) => update(n => n = object),
+        reset: () => set([])
+    }
+}
+
+function createRecentStore() {
+    const { subscribe, set, update } = writable([]);
+    return {
+        subscribe,
+        update: (obj) => update(n => n = obj),
         reset: () => set([])
     }
 }
