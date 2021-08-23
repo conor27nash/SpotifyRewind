@@ -2,7 +2,9 @@
     import { loggedIn, recentTracks } from "../scripts/store";
 
     let orgData = $recentTracks;
- 
+    console.log($loggedIn)
+    let localloggedin = false;
+    localloggedin = $loggedIn
 </script>
 
 <br />
@@ -12,7 +14,7 @@
     <br /><br /> Current build 1.0 <br /><br />recent listenings<br /><br />
 </p>
 
-{#if $loggedIn}
+{#if localloggedin}
 <h2>Recent Tracks</h2>
     {#each orgData as track, i}
         <div class="card hideBig">
