@@ -2,7 +2,7 @@
     import { loggedIn, recentTracks } from "../scripts/store";
 
     let orgData = $recentTracks;
-    console.log("\nHome\n" + orgData);
+ 
 </script>
 
 <br />
@@ -13,6 +13,7 @@
 </p>
 
 {#if $loggedIn}
+<h2>Recent Tracks</h2>
     {#each orgData as track, i}
         <div class="card hideBig">
             <div class="col-sm">
