@@ -2,6 +2,7 @@
     import { loggedIn, recentTracks } from "../scripts/store";
 
     let orgData = $recentTracks;
+    console.log("\nHome\n" + orgData);
 </script>
 
 <br />

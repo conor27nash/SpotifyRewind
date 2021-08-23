@@ -5,8 +5,9 @@
         tracksMedium,
         tracksLong,
     } from "../scripts/store";
-
+    
     let orgData = $tracksShort;
+    console.log("\nTracks\n" + orgData);
     function setTracksShort() {
         orgData = $tracksShort;
     }
