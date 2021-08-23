@@ -12,6 +12,7 @@
 <br />
 <p>
     <br /><br /> Current build 1.0 <br /><br />recent listenings<br /><br />
+    {localloggedin}
 </p>
 
 {#if localloggedin}
