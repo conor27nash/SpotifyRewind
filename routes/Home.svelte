@@ -2,21 +2,21 @@
     import { loggedIn, recentTracks } from "../scripts/store";
 
     let orgData = $recentTracks;
-    console.log($loggedIn)
+ 
     let localloggedin = false;
     localloggedin = $loggedIn
 </script>
 
-<br />
+<br >
 <h1>Home</h1>
 <br />
 <p>
-    <br /><br /> Current build 1.0 <br /><br />recent listenings<br /><br />
-    {localloggedin}
+<br> Current build 1.1 <br />
+  
 </p>
 
 {#if localloggedin}
-<h2>Recent Tracks</h2>
+    <h2>Recent Tracks</h2>
     {#each orgData as track, i}
         <div class="card hideBig">
             <div class="col-sm">
@@ -50,7 +50,7 @@
 {/if}
 
 <style>
-   h1 {
+    h1 {
         background-color: #77b1ad;
         border: 3px solid #322831;
         border-radius: 20px;
