@@ -1,6 +1,6 @@
 <script>
     import { refresh_token, access_token, loggedIn } from "../scripts/store";
-    import { getAllInfo, getRecent } from "../scripts/spotifyInfo";
+    import { getAllInfo, getRecentSongs } from "../scripts/spotifyInfo";
     import { get } from "svelte/store";
 
     var scopes = "user-read-private user-read-email user-top-read user-read-recently-played";
@@ -74,7 +74,7 @@
 
     let getInfo = async () => {
         getAllInfo();
-        getRecent();
+        getRecentSongs();
         toggle();
     };
 </script>
