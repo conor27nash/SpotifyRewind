@@ -11,7 +11,7 @@
 <h1>Home</h1>
 <br />
 <p>
-<br> Current build 1.2 <br />
+<br> Current build 1.3 <br />
   
 </p>
 
