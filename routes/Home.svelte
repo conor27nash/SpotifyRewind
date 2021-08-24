@@ -2,7 +2,7 @@
     import { loggedIn, recentTracks } from "../scripts/store";
 
     let orgData = $recentTracks;
- 
+    console.log(orgData)
     let localloggedin = false;
     localloggedin = $loggedIn
 </script>
@@ -11,7 +11,7 @@
 <h1>Home</h1>
 <br />
 <p>
-<br> Current build 1.1 <br />
+<br> Current build 1.2 <br />
   
 </p>
 
