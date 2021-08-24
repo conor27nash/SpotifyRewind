@@ -15,7 +15,7 @@
         encodeURIComponent(scopes) +
         "&redirect_uri=" +
         encodeURIComponent(redirect_uri);
-    // console.log(url);
+
     let json;
     let code;
     function login() {

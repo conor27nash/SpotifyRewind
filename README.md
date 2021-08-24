@@ -1,2 +1,2 @@
 # SpotifyRewind
-version 1.10
+version 1.2

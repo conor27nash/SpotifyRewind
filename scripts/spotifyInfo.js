@@ -29,8 +29,6 @@ let getRecent = async (store) => {
     let token = get(access_token)
     let recentURL = `https://spotifyauthfunction.azurewebsites.net/api/recent?Authorization=${token}`
     let res = await fetch(recentURL);
-    console.log(res)
     let obj = await res.json();
-    console.log(obj)
     store.update(obj);
 }
