@@ -3,9 +3,9 @@
     import { access_token, user_id, playlistDropDown, songsForPlaylist } from "../scripts/store";
     
     let playlistName;
-    
+    let playlistTracks = $songsForPlaylist
 
-    console.log(songsForPlaylist)
+    console.log(playlistTracks)
     const dispatch = createEventDispatcher();
 
     function setStatus() {
@@ -21,7 +21,7 @@
 
         const options = {
             method: "POST",
-            body: JSON.stringify({ songlist: songsForPlaylist }),
+            body: JSON.stringify({ songlist: playlistTracks }),
             headers: {
                 "Content-Type": "application/json",
             },
