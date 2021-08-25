@@ -4,6 +4,7 @@
     let playlistName;
     export let songList;
 
+    console.log(songlist)
     const dispatch = createEventDispatcher();
 
     function setStatus() {
