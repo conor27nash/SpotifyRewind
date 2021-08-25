@@ -41,5 +41,5 @@ let storeUserId = async (store) => {
     let recentURL = `https://spotifyauthfunction.azurewebsites.net/api/userprofile?Authorization=${token}`
     let res = await fetch(recentURL);
     let obj = await res.json();
-    store.update(obj);
+    store.update(obj.id);
 }

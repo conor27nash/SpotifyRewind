@@ -5,6 +5,7 @@
     let playlistName;
     let playlistTracks = $songsForPlaylist
     let userID = $user_id
+    console.log(userID)
     console.log(playlistTracks)
     const dispatch = createEventDispatcher();
 
