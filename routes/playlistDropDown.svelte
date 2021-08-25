@@ -6,8 +6,6 @@
     let playlistTracks = $songsForPlaylist
     let userID = $user_id
     let authToken = $access_token
-    console.log(userID)
-    console.log(playlistTracks)
     const dispatch = createEventDispatcher();
 
     function setStatus() {
