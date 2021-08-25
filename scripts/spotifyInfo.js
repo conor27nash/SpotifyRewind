@@ -13,6 +13,9 @@ export let getAllInfo = () => {
 export let getRecentSongs = () => {
     getRecent(recentTracks)
 }
+export let getUserId = () => {
+    storeUserId(user_id)
+}
 
 let getInfo = async (type, timeRange, store) => {
     let token = get(access_token)
@@ -33,7 +36,7 @@ let getRecent = async (store) => {
     store.update(obj);
 }
 
-export let getUserId = async (store) => {
+let storeUserId = async (store) => {
     let token = get(access_token)
     let recentURL = `https://spotifyauthfunction.azurewebsites.net/api/userprofile?Authorization=${token}`
     let res = await fetch(recentURL);
