@@ -69,47 +69,5 @@
         border-radius: 20px;
     }
 
-    .btn {
-        color: #322831;
-        transition: all 0.5s;
-        position: relative;
-        padding-left: 10%;
-        padding-right: 10%;
-        margin: 0px;
-    }
-    .btn::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        background-color: rgba(51, 68, 78, 0.05);
-        transition: all 0.3s;
-        border: 3px solid #322831;
-        border-radius: 10px;
-    }
-    .btn:hover::before {
-        opacity: 0;
-        transform: scale(0.5, 0.5);
-    }
-    .btn::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        opacity: 0;
-        transition: all 0.3s;
-        border: 1px solid rgba(255, 255, 255);
-        border-radius: 10px;
-        transform: scale(1.2, 1.2);
-    }
-    .btn:hover::after {
-        opacity: 1;
-        transform: scale(1, 1);
-    }
+    
 </style>

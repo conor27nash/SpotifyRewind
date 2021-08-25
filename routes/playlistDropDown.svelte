@@ -1,6 +1,6 @@
 <script>
-    const request = require("request");
-
+  
+    import request from "request";
     import { access_token, user_id , playlistDropDown} from "../scripts/store";
    
     let playlistName;
