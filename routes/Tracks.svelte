@@ -7,6 +7,7 @@
         playlistDropDown,
         songsForPlaylist
     } from "../scripts/store";
+    import PlaylistDropDown from "./playlistDropDown.svelte";
 
     let orgData = $tracksShort;
     let tracksForPlaylist = [];
