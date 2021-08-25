@@ -65,7 +65,7 @@
             let object = await res.json();
             access_token.update(object.access_token);
             refresh();
-        }, 3600);
+        }, 360000);
     };
 
     function toggle() {
