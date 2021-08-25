@@ -1,7 +1,7 @@
 <script>
     const request = require("request");
 
-    import { access_token, user_id , playlistDropDown} from "./store";
+    import { access_token, user_id , playlistDropDown} from "../scripts/store";
    
     let playlistName;
     export let songList;
