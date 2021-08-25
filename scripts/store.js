@@ -5,7 +5,10 @@ import { writable } from "svelte/store";
 
 export const access_token = createTokenStore()
 export const refresh_token = createTokenStore()
+
 export const loggedIn = createLogin()
+export const playlistDropDown = createPlaylistDropDown()
+
 export const tracksShort = createInfoStore()
 export const tracksMedium = createInfoStore()
 export const tracksLong = createInfoStore()
@@ -13,6 +16,9 @@ export const artistShort = createInfoStore()
 export const artistMedium = createInfoStore()
 export const artistLong = createInfoStore()
 export const recentTracks = createRecentStore()
+
+export const user_id = createUserIdStore()
+
 
 function createTokenStore() {
     const { subscribe, set, update } = writable('Not updated');
@@ -48,7 +54,23 @@ function createLogin() {
         reset: () => set(false)
     }
 }
+function createPlaylistDropDown() {
+    const { subscribe, set, update } = writable(false);
+    return {
+        subscribe,
+        update: () => update(n => n = !n),
+        reset: () => set(false)
+    }
+}
 
+function createUserIdStore(){
+    const { subscribe, set, update } = writable([]);
+    return {
+        subscribe,
+        update: (obj) => update(n => n = obj),
+        reset: () => set([])
+    } 
+}
 
 
 

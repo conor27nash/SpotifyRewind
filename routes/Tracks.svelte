@@ -4,18 +4,39 @@
         tracksShort,
         tracksMedium,
         tracksLong,
+        playlistDropDown,
     } from "../scripts/store";
-    
+    import PlaylistDropDown from "./playlistDropDown.svelte";
+
     let orgData = $tracksShort;
-   
+    addCurrentTrackChoiceToPlaylistList();
+    let status = false;
+
+    let loggedin = true;
+
+    let songsForPlaylist = [];
+
+    function addCurrentTrackChoiceToPlaylistList() {
+        for (const track of orgData) {
+            songsForPlaylist.push(track.Uri);
+        }
+    }
+
     function setTracksShort() {
         orgData = $tracksShort;
+        addCurrentTrackChoiceToPlaylistList();
     }
     function setTracksMedium() {
         orgData = $tracksMedium;
+        addCurrentTrackChoiceToPlaylistList();
     }
     function setTracksLong() {
         orgData = $tracksLong;
+        addCurrentTrackChoiceToPlaylistList();
+    }
+
+    function setStatus() {
+        playlistDropDown.update();
     }
 </script>
 
@@ -35,10 +56,15 @@
                 <button on:click={setTracksLong} class="btn col-sm"
                     >Of all Time</button
                 >
+                <button on:click={setStatus} class="btn col-sm"
+                    >Make a playlist</button
+                >
             </div>
         </div>
         <br />
-
+        {#if $playlistDropDown}
+            <PlaylistDropDown songList={songsForPlaylist} />
+        {/if}
         {#each orgData as track, i}
             <div class="card hideBig">
                 <div class="col-sm">
@@ -66,7 +92,7 @@
                     </div>
                 </div>
             </div>
-           
+
             <br />
         {/each}
     {/if}
@@ -135,5 +161,4 @@
         opacity: 1;
         transform: scale(1, 1);
     }
- 
 </style>

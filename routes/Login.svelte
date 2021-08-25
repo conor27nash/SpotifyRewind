@@ -1,9 +1,9 @@
 <script>
     import { refresh_token, access_token, loggedIn } from "../scripts/store";
-    import { getAllInfo, getRecentSongs } from "../scripts/spotifyInfo";
+    import { getAllInfo, getRecentSongs, getUserId } from "../scripts/spotifyInfo";
     import { get } from "svelte/store";
 
-    var scopes = "user-read-private user-read-email user-top-read user-read-recently-played";
+    var scopes = "user-read-private user-read-email user-top-read user-read-recently-played playlist-modify-public playlist-modify-private";
     let redirect_uri =
         "https://spotifyrewind.z33.web.core.windows.net/popup.html";
 
@@ -76,6 +76,7 @@
         getAllInfo();
         getRecentSongs();
         toggle();
+        getUserId();
     };
 </script>
 

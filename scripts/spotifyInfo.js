@@ -32,3 +32,11 @@ let getRecent = async (store) => {
     let obj = await res.json();
     store.update(obj);
 }
+
+export let getUserId = async (store) => {
+    let token = get(access_token)
+    let recentURL = `https://spotifyauthfunction.azurewebsites.net/api/userprofile?Authorization=${token}`
+    let res = await fetch(recentURL);
+    let obj = await res.json();
+    store.update(obj);
+}
