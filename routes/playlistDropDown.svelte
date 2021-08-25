@@ -1,50 +1,38 @@
 <script>
-  
-    import request from "request";
-    import { access_token, user_id , playlistDropDown} from "../scripts/store";
-   
+    import { access_token, user_id, playlistDropDown } from "../scripts/store";
+    import { createEventDispatcher } from "svelte";
     let playlistName;
     export let songList;
+
+    const dispatch = createEventDispatcher();
 
     function setStatus() {
         playlistDropDown.update();
     }
 
-    async function makePlaylist() {
-        let options = {
+    const submitHandler = () => {
+        dispatch("add");
+
+        let url =
+            `https://spotifyauthfunction.azurewebsites.net/api/playlist?Authorization=${access_token}&user_id=${user_id}&name=` +
+            encodeURIComponent(playlistName);
+
+        const options = {
             method: "POST",
-            url:
-                `https://spotifyauthfunction.azurewebsites.net/api/playlist?Authorization=${access_token}&user_id=${user_id}&name=` +
-                encodeURIComponent(playlistName),
+            body: JSON.stringify({ songlist: [songList] }),
             headers: {
-                Accept: "application/json",
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ songlist: [songList] }),
         };
 
-        let promise = new Promise((resolve, reject) => {
-            request(options, (error, response) =>
-                error ? reject(error) : resolve(response)
-            );
-        }).then((response) => {
-            resObj = JSON.parse(response.body);
+        fetch(url, options)
+            .then((res) => res.json())
+            .then((res) => console.log(res));
+    };
 
-            if (resObj.error) {
-                responseMessage = {
-                    error: resObj.error,
-                    description: resObj.error_description,
-                };
-                console.log(responseMessage)
-            } else {
-                responseMessage = resObj;
-                console.log(responseMessage)
-            }
-        });
-
-        let result = await promise;
-
-        setStatus()
+    async function makePlaylist() {
+        submitHandler()
+        setStatus();
     }
 </script>
 
