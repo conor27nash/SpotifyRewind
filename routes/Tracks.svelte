@@ -9,9 +9,10 @@
     } from "../scripts/store";
 
     let orgData = $tracksShort;
+    let tracksForPlaylist = [];
     addCurrentTrackChoiceToPlaylistList();
  
-    let tracksForPlaylist = [];
+    
 
     function addCurrentTrackChoiceToPlaylistList() {
         for (const track of orgData) {
