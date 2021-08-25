@@ -4,7 +4,7 @@
     
     let playlistName;
     let playlistTracks = $songsForPlaylist
-
+    let userID = $user_id
     console.log(playlistTracks)
     const dispatch = createEventDispatcher();
 
@@ -16,7 +16,7 @@
         dispatch("add");
 
         let url =
-            `https://spotifyauthfunction.azurewebsites.net/api/playlist?Authorization=${access_token}&user_id=${user_id}&name=` +
+            `https://spotifyauthfunction.azurewebsites.net/api/playlist?Authorization=${access_token}&user_id=${userID}&name=` +
             encodeURIComponent(playlistName);
 
         const options = {
