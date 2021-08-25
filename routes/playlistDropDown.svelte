@@ -5,7 +5,7 @@
     let playlistName;
     
 
- 
+    console.log(songsForPlaylist)
     const dispatch = createEventDispatcher();
 
     function setStatus() {
@@ -21,7 +21,7 @@
 
         const options = {
             method: "POST",
-            body: JSON.stringify({ songlist: [songsForPlaylist] }),
+            body: JSON.stringify({ songlist: songsForPlaylist }),
             headers: {
                 "Content-Type": "application/json",
             },
