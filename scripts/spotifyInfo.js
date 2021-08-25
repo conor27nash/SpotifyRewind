@@ -1,4 +1,4 @@
-import { tracksShort, tracksLong, tracksMedium, artistLong, artistMedium, artistShort, access_token, recentTracks } from "./store";
+import { tracksShort, tracksLong, tracksMedium, artistLong, artistMedium, artistShort, access_token, recentTracks, user_id} from "./store";
 import {get} from 'svelte/store'
 
 export let getAllInfo = () => {
