@@ -5,21 +5,20 @@
         tracksMedium,
         tracksLong,
         playlistDropDown,
+        songsForPlaylist
     } from "../scripts/store";
     import PlaylistDropDown from "./playlistDropDown.svelte";
 
     let orgData = $tracksShort;
     addCurrentTrackChoiceToPlaylistList();
-    let status = false;
-
-    let loggedin = true;
-
-    let songsForPlaylist = [];
+ 
+    let tracksForPlaylist = [];
 
     function addCurrentTrackChoiceToPlaylistList() {
         for (const track of orgData) {
-            songsForPlaylist.push(track.Uri);
+            tracksForPlaylist.push(track.Uri);
         }
+        songsForPlaylist.update(tracksForPlaylist)
     }
 
     function setTracksShort() {
@@ -63,7 +62,7 @@
         </div>
         <br />
         {#if $playlistDropDown}
-            <PlaylistDropDown songList={songsForPlaylist} />
+            <PlaylistDropDown></PlaylistDropDown>
         {/if}
         {#each orgData as track, i}
             <div class="card hideBig">

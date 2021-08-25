@@ -9,6 +9,7 @@ export const refresh_token = createTokenStore()
 export const loggedIn = createLogin()
 export const playlistDropDown = createPlaylistDropDown()
 
+export const songsForPlaylist = createInfoStore()
 export const tracksShort = createInfoStore()
 export const tracksMedium = createInfoStore()
 export const tracksLong = createInfoStore()

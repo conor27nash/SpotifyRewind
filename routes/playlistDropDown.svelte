@@ -1,8 +1,8 @@
 <script>
-    import { access_token, user_id, playlistDropDown } from "../scripts/store";
+    import { access_token, user_id, playlistDropDown, songsForPlaylist } from "../scripts/store";
     import { createEventDispatcher } from "svelte";
     let playlistName;
-    export let songList;
+    let songList = songsForPlaylist;
 
     console.log(songlist)
     const dispatch = createEventDispatcher();
