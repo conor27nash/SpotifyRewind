@@ -4,8 +4,9 @@
     import { get } from "svelte/store";
 
     var scopes = "user-read-private user-read-email user-top-read user-read-recently-played playlist-modify-public playlist-modify-private";
-    let redirect_uri =
-        "https://spotifyrewind.z33.web.core.windows.net/popup.html";
+    
+    
+    let redirect_uri = "https://spotifyrewind.z33.web.core.windows.net/popup.html";
 
 
         // NEED TO HIDE CLIENT ID BELOW
@@ -45,11 +46,11 @@
 
     let exchange = async () => {
     
-        let exchangeUrl = `https://spotifyauthfunction.azurewebsites.net/api/exchange?code=${code}`;
+        let exchangeUrl = `https://spotifyauthfunction.azurewebsites.net/api/exchange?code=${code}&callback_uri=${redirect_uri}`;
         let res = await fetch(exchangeUrl);
         let object = await res.json();
         access_token.update(object.access_token);
-   
+       
         refresh_token.update(object.refresh_token);
         refresh();
         json = JSON.stringify(object);
