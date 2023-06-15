@@ -11,6 +11,7 @@
 
     let orgData = $tracksShort;
 
+    
     console.log(orgData)
     
     let tracksForPlaylist = [];
