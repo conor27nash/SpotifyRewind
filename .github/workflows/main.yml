@@ -27,7 +27,7 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-            az storage blob upload-batch --account-name spotifyrewind  -d '$web' -s ./public
+            az storage blob upload-batch --account-name spotifyrewind  -d '$web' -s ./
 # Azure logout 
     - name: logout
       run: |
