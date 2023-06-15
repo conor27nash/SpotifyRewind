@@ -9,7 +9,8 @@
     } from "../scripts/store";
     import PlaylistDropDown from "./playlistDropDown.svelte";
 
-    let orgData : any = $tracksShort;
+    let orgData = $tracksShort;
+    console.log(orgData)
     let tracksForPlaylist = [];
     addCurrentTrackChoiceToPlaylistList();
  
