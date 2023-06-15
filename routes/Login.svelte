@@ -7,6 +7,7 @@
     
     
     let redirect_uri = "https://spotifyrewind.z33.web.core.windows.net/popup.html";
+    // let redirect_uri = "http://localhost:5000/popup.html";
 
 
         // NEED TO HIDE CLIENT ID BELOW
@@ -54,7 +55,8 @@
         refresh_token.update(object.refresh_token);
         refresh();
         json = JSON.stringify(object);
-        getInfo();
+        
+        await getInfo();
     };
 
     let refresh = () => {
@@ -74,10 +76,10 @@
     }
 
     let getInfo = async () => {
-        getAllInfo();
-        getRecentSongs();
-        toggle();
-        getUserId();
+        await getAllInfo();
+        await getRecentSongs();
+        await toggle();
+        await getUserId();
     };
 </script>
 
